@@ -23,8 +23,6 @@ def main():
         asteroid = Asteroid(100, 200, 30)
 
         player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
-        updatable.add(player)
-        drawable.add(player)
         print(f"DEBUG: Player created at x={SCREEN_WIDTH // 2}, y={SCREEN_HEIGHT // 2}")
 
         asteroid_field = AsteroidField()
