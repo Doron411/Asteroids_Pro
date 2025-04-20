@@ -21,17 +21,18 @@ def main():
         print(f"Screen height: {SCREEN_HEIGHT}")
 
         asteroid = Asteroid(100, 200, 30)
-        print(f"Asteroid created at x={asteroid.position.x}, y={asteroid.position.y}, radius={30}")
-        print(f"Asteroid in drawable: {asteroid in drawable}")
-        print(f"Asteroid in updatable: {asteroid in updatable}")
 
-<<<<<<< HEAD
-        player = Player(SCREEN_WIDTH, SCREEN_HEIGHT, scale=2.0)
-=======
         player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
->>>>>>> 212b8ac7d3ca2b4fe3a87e6d11e1a34bde2f7fcb
+        updatable.add(player)
+        drawable.add(player)
         print(f"DEBUG: Player created at x={SCREEN_WIDTH // 2}, y={SCREEN_HEIGHT // 2}")
 
+        asteroid_field = AsteroidField()
+        print("DEBUG: Asteroid field initialized successfully")
+        print("(DEBUG) Current contents of updatable group:")
+        for sprite in updatable:
+            print(f" - {type(sprite).__name__}")
+                
         running = True
         while running:
             dt = clock.tick(60) / 1000
@@ -41,19 +42,17 @@ def main():
                         running = False
 
             updatable.update(dt)
-            screen.fill((0, 0, 0)) 
-<<<<<<< HEAD
+            print("(DEBUG) Checking which updatable sprites exist:")
+            for sprite in updatable:
+                print(f" - {type(sprite).__name__}")
 
-            player.draw(screen)
-            drawable.draw(screen)
+            print("(DEBUG) Updatable.update() called")
+            screen.fill((0, 0, 0)) 
 
             for sprite in drawable:
                 sprite.draw(screen)
+                                                
 
-=======
-            drawable.draw(screen)
-
->>>>>>> 212b8ac7d3ca2b4fe3a87e6d11e1a34bde2f7fcb
             pygame.display.flip()
 
 
