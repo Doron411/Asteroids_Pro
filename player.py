@@ -67,9 +67,3 @@ class Player(pygame.sprite.Sprite):
             self.position.y = 0
         elif self.position.y < 0:
             self.position.y = SCREEN_HEIGHT
-
-    
-
-
-
-    
